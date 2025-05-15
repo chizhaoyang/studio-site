@@ -1,0 +1,40 @@
+/* 0. Google Fonts (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root{
+  --warm-brown:#6f4e37;
+  --ivory:#f7f5ef;
+  --blue:#336699;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Inter",sans-serif;}
+
+body{background:var(--ivory);color:#333;line-height:1.6;}
+
+header nav{
+  background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05);padding:0.5rem 1rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
+}
+
+.logo{font-weight:600;font-size:1.25rem;color:var(--warm-brown);text-decoration:none;}
+
+.menu{list-style:none;display:flex;gap:1rem;}
+.menu a{text-decoration:none;color:#333;padding:0.25rem 0;}
+.menu a:hover{color:var(--warm-brown);}
+
+.burger{display:none;font-size:1.5rem;cursor:pointer;}
+
+#nav-toggle{display:none;}
+#nav-toggle:checked + .burger + .menu{display:block;}
+
+@media(max-width:700px){
+  .menu{display:none;flex-direction:column;width:100%;}
+  .burger{display:block;}
+}
+
+main{max-width:900px;margin:3rem auto;padding:0 1rem;}
+h1,h2{color:var(--blue);margin-bottom:0.5em;}
+.btn{display:inline-block;background:var(--blue);color:#fff;padding:0.5rem 1rem;
+     border-radius:4px;text-decoration:none;margin-top:1rem;}
+.btn:hover{background:var(--warm-brown);}
+footer{margin-top:3rem;text-align:center;font-size:0.9rem;color:#777;padding:1rem 0;}
