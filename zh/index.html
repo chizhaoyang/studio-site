@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>鼎艺音乐工作室</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+  <!-- Hero -->
+  <section class="hero container">
+    <div>
+      <h1>每一个音符都是您音乐旅程中的一步</h1>
+      <p>为各年龄段好奇的心灵提供个性化钢琴与音乐理论课程。</p>
+      <a class="btn" href="contact.html">预约试听课</a>
+    </div>
+    <img class="hero-img" src="/images/hero.png" alt="学生在钢琴前" />
+  </section>
+
+  <!-- 3-card grid -->
+  <section class="container">
+    <h2 class="section-title">为什么选择我们？</h2>
+
+    <div class="grid-3">
+      <!-- Card 1 -->
+      <article class="card">
+        <div class="card__body">
+          <h3>个性化</h3>
+          <p>适用于自闭症／多动症学生的包容性教学方法。</p>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <div class="card__body">
+          <h3>考级无忧</h3>
+          <p>ABRSM 英皇及美国钢琴协会考级辅导。</p>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <div class="card__body">
+          <h3>双语教学</h3>
+          <p>英语与普通话授课。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, { cache: "no-cache" });
+        if (res.ok) document.body.insertAdjacentHTML(id, await res.text());
+      };
+      await load("header.html", "afterbegin");
+      await load("footer.html", "beforeend");
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

@@ -1,24 +1,99 @@
-<header>
-    <nav>
-      <a href="index.html" class="logo">Crescendo Journey</a>
-      <input type="checkbox" id="nav-toggle">
-      <label for="nav-toggle" class="burger">&#9776;</label>
-  
-      <ul class="menu">
-        <li><a href="about.html">About</a></li>
-        <li><a href="lessons.html">Lessons</a></li>
-        <li><a href="showcase.html">Showcase</a></li>
-        <li><a href="policies.html">Policies</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-<h1>Contact / Book a Trial Lesson</h1>
-<form action="https://formspree.io/f/yourFormID" method="POST">
-  <label>Name<input type="text" name="name" required></label>
-  <label>Email<input type="email" name="email" required></label>
-  <label>Message<textarea name="message" rows="5" required></textarea></label>
-  <button type="submit" class="btn">Send</button>
-</form>
-<p>Or email us directly at <a href="mailto:hello@crescendojourney.com">hello@crescendojourney.com</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Crescendo Journey Music Studio</title>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Page-specific layout tweaks -->
+  <style>
+    /* Two-column wrapper that collapses on small screens */
+    .contact-wrap{
+      max-width:1000px;                        /* keeps everything centred */
+      margin-inline:auto;
+      display:grid;
+      gap:2.5rem;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      align-items:start;
+    }
+
+    /* Reuse card styling */
+    .contact-card{
+      background:var(--clr-light);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      padding:2rem;
+      display:grid;
+      gap:1rem;
+    }
+    .contact-card iframe{height:350px}
+
+    /* Form grid spacing inside card */
+    .contact-form{display:grid;gap:1rem}
+  </style>
+</head>
+
+<body>
+  <header id="site-header"></header>
+
+  <main class="section container">
+    <h2 class="section-title" style="text-align:center">Book&nbsp;a&nbsp;Trial&nbsp;Lesson</h2>
+
+    <div class="contact-wrap">
+      <!-- Form card -->
+      <section class="contact-card">
+        <form
+          action="https://formspree.io/YOUR_EMAIL"
+          method="POST"
+          class="contact-form"
+        >
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Email address" required />
+          <input type="tel" name="phone" placeholder="Phone (optional)" />
+          <textarea name="message" rows="5" placeholder="Tell us about your goals…"></textarea>
+          <button type="submit" class="btn">Send</button>
+        </form>
+      </section>
+
+      <!-- Map & details card -->
+      <section class="contact-card">
+        <h3>Find&nbsp;Us</h3>
+        <p>Private piano studio – Framingham, MA&nbsp;01701</p>
+        <iframe
+          class="responsive"
+          src="https://www.google.com/maps/embed?pb=!1m18!…"  <!-- replace with real embed -->
+          title="Studio location map"
+          loading="lazy"
+        ></iframe>
+
+        <h3 style="margin-top:1rem">Stay&nbsp;Connected</h3>
+        <p>
+          Email:
+          <a href="mailto:info@crescendojourney.com">info@crescendojourney.com</a><br />
+          Phone: (555)-123-4567<br />
+          Instagram:
+          <a href="https://instagram.com/yourstudio" target="_blank" rel="noopener">@yourstudio</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, {cache:"no-cache"});
+        if (res.ok) document.getElementById(id).innerHTML = await res.text();
+      };
+      await Promise.all([
+        load("header.html", "site-header"),
+        load("footer.html", "site-footer"),
+      ]);
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

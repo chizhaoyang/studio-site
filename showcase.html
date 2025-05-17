@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showcase – Crescendo Journey Music Studio</title>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Page-specific tweaks -->
+  <style>
+    /* Narrower quote column */
+    .quote-wrap{
+      max-width:900px;
+      margin-inline:auto;
+      display:grid;
+      gap:1.5rem;
+    }
+
+    /* “Masonry” feel for gallery */
+    .gallery{
+      column-count:3;          /* 3 columns on desktop */
+      column-gap:1rem;
+    }
+    .gallery img{
+      width:100%;
+      margin-bottom:1rem;
+      break-inside:avoid;      /* avoid awkward splits */
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+    }
+
+    @media(max-width:900px){
+      .gallery{column-count:2;}
+    }
+    @media(max-width:600px){
+      .gallery{column-count:1;}
+    }
+
+    /* Video card */
+    .video-card{
+      max-width:900px;
+      margin-inline:auto;
+      margin-top:2rem;
+      background:var(--clr-light);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      overflow:hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="site-header"></header>
+
+  <main class="section container">
+    <h2 class="section-title" style="text-align:center">Student&nbsp;Voices&nbsp;&amp;&nbsp;Performances</h2>
+
+    <!-- Testimonials -->
+    <div class="quote-wrap">
+      <article class="quote">“I passed ABRSM Grade 5 with distinction thanks to Minghao’s clear guidance!”<br>— Grace Z.</article>
+      <article class="quote">“Lessons are fun and creative; I love sight-reading races.”<br>— Ryan L.</article>
+      <article class="quote">“The adaptive strategies helped my son with ASD flourish at the piano.”<br>— Parent of Evan</article>
+    </div>
+
+    <!-- Photo gallery -->
+    <h3 style="margin-top:3rem;text-align:center">Recital&nbsp;Moments</h3>
+    <div class="gallery">
+      <img src="/images/recital1.png" alt="Student on stage">
+      <img src="/images/recital2.png" alt="Duet performance">
+      <img src="/images/recital3.png" alt="Piano ensemble">
+      <!-- Add more photos as needed -->
+    </div>
+
+    <!-- Video -->
+    <h3 style="margin-top:3rem;text-align:center">Watch&nbsp;&amp;&nbsp;Listen</h3>
+    <div class="video-card">
+      <iframe
+        class="responsive"
+        src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0"
+        title="Student performance"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, {cache:"no-cache"});
+        if (res.ok) document.getElementById(id).innerHTML = await res.text();
+      };
+      await Promise.all([
+        load("header.html", "site-header"),
+        load("footer.html", "site-footer"),
+      ]);
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

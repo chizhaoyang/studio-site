@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>联系鼎艺音乐工作室</title>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- 页面专属布局微调 -->
+  <style>
+    .contact-wrap{
+      max-width:1000px;
+      margin-inline:auto;
+      display:grid;
+      gap:2.5rem;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      align-items:start;
+    }
+    .contact-card{
+      background:var(--clr-light);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      padding:2rem;
+      display:grid;
+      gap:1rem;
+    }
+    .contact-card iframe{height:350px}
+    .contact-form{display:grid;gap:1rem}
+  </style>
+</head>
+
+<body>
+  <header id="site-header"></header>
+
+  <main class="section container">
+    <h2 class="section-title" style="text-align:center">预约试听课</h2>
+
+    <div class="contact-wrap">
+      <!-- 表单卡片 -->
+      <section class="contact-card">
+        <form
+          action="https://formspree.io/YOUR_EMAIL"
+          method="POST"
+          class="contact-form"
+        >
+          <input type="text" name="name" placeholder="您的姓名" required />
+          <input type="email" name="email" placeholder="电子邮箱" required />
+          <input type="tel" name="phone" placeholder="电话（选填）" />
+          <textarea name="message" rows="5" placeholder="请告诉我们您的学习目标…"></textarea>
+          <button type="submit" class="btn">发送</button>
+        </form>
+      </section>
+
+      <!-- 地图与联系信息卡片 -->
+      <section class="contact-card">
+        <h3>工作室地址</h3>
+        <p>私人钢琴教室 – 马萨诸塞州弗雷明汉&nbsp;01701</p>
+
+        <iframe
+          class="responsive"
+          src="https://www.google.com/maps/embed?pb=!1m18!…"  <!-- 用实际嵌入代码替换 -->
+          title="工作室位置"
+          loading="lazy"
+        ></iframe>
+
+        <h3 style="margin-top:1rem">联系方式</h3>
+        <p>
+          邮箱：
+          <a href="mailto:info@crescendojourney.com">info@crescendojourney.com</a><br />
+          电话： (555)-123-4567<br />
+          Instagram：
+          <a href="https://instagram.com/yourstudio" target="_blank" rel="noopener">@yourstudio</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, {cache:"no-cache"});
+        if (res.ok) document.getElementById(id).innerHTML = await res.text();
+      };
+      await Promise.all([
+        load("header.html", "site-header"),
+        load("footer.html", "site-footer"),
+      ]);
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

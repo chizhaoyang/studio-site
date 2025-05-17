@@ -1,38 +1,82 @@
-<header>
-    <nav>
-      <a href="index.html" class="logo">Crescendo Journey</a>
-      <input type="checkbox" id="nav-toggle">
-      <label for="nav-toggle" class="burger">&#9776;</label>
-  
-      <ul class="menu">
-        <li><a href="about.html">About</a></li>
-        <li><a href="lessons.html">Lessons</a></li>
-        <li><a href="showcase.html">Showcase</a></li>
-        <li><a href="policies.html">Policies</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-<!doctype html><html lang="en"><head>
-    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>About | Crescendo Journey Music Studio</title>
-    <link rel="stylesheet" href="css/style.css">
-  </head><body>
-  <header>…</header>
-  
-  <main>
-    <h1>About the Studio</h1>
-    <p>Hello! I’m <strong>Minghao Liu</strong>, founder and lead instructor… [short bio]</p>
-    <h2>Teaching Philosophy</h2>
-    <ul>
-      <li><strong>Patience</strong> – learning unfolds at each student’s pace.</li>
-      <li><strong>Resiliency</strong> – mistakes are data, not defeat.</li>
-      <li><strong>Slow Pace</strong> – depth over speed ensures mastery.</li>
-      <li><strong>Insistence</strong> – consistent practice builds musicianship.</li>
-    </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – Crescendo Journey Music Studio</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+  <!-- Header placeholder -->
+  <header id="site-header"></header>
+
+  <!-- ─────────────  Main content  ───────────── -->
+  <main class="section container">
+
+    <!-- About the Studio -->
+    <h2 class="section-title">About&nbsp;the&nbsp;Studio</h2>
+    <p>
+      Crescendo Journey Music Studio was founded by <em>Minghao&nbsp;Liu</em> in&nbsp;2025 with a
+      single goal: to create a patient, resilient, and inclusive space where students of all
+      backgrounds can discover the joy of music. Whether preparing for ABRSM exams or learning
+      their very first notes, every student follows a personalized journey that values steady
+      growth over speed.
+    </p>
+
+    <!-- About the Founder -->
+    <h2 class="section-title" style="margin-top:3rem">About&nbsp;the&nbsp;Founder</h2>
+
+    <div
+      style="
+        display:grid;
+        gap:2rem;
+        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+        align-items:center;
+      "
+    >
+      <!-- Founder photo -->
+      <img
+        src="/images/founder.png"
+        alt="Minghao Liu at the piano"
+        style="width:50%;border-radius:var(--radius);box-shadow:var(--shadow-md);"
+      />
+
+      <!-- Founder bio -->
+      <article>
+        <h3>Minghao&nbsp;Liu, M.M.</h3>
+        <p>
+          • Master of Music, Berklee College of Music<br />
+          • Master of Music, West Virginia University<br />
+          • Bachelor of Piano Performance, Sichuan Conservatory
+        </p>
+        <p>
+          With more than ten years of piano-teaching experience, Minghao prepares students
+          for ABRSM examinations, AP Music Theory, and a lifetime of joyful playing. His
+          teaching blends patience with creativity, fostering resilience and musical
+          curiosity in every learner.
+        </p>
+      </article>
+    </div>
+
   </main>
-  
-  <footer>© 2025 Crescendo Journey Music Studio • Somerville, MA</footer>
-  </body></html>
-  
+
+  <!-- Footer placeholder -->
+  <footer id="site-footer"></footer>
+
+  <!-- Inject shared header & footer -->
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, { cache: "no-cache" });
+        if (res.ok) document.getElementById(id).innerHTML = await res.text();
+      };
+      await Promise.all([
+        load("header.html", "site-header"),
+        load("footer.html", "site-footer"),
+      ]);
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

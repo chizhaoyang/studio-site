@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policies – Crescendo Journey Music Studio</title>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Page-specific tweaks -->
+  <style>
+    /* Narrower text column inside the container */
+    .policy-wrap{
+      max-width:800px;           /* keeps line length readable */
+      margin-inline:auto;
+      display:grid;
+      gap:2.5rem;
+    }
+
+    /* Re-use card styling for each policy block */
+    .policy-card{
+      background:var(--clr-light);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      padding:2rem;
+    }
+
+    /* Calendar height cap */
+    .policy-card iframe{
+      height:450px;              /* tidy viewport */
+    }
+  </style>
+</head>
+
+<body>
+  <header id="site-header"></header>
+
+  <main class="section container">
+    <h2 class="section-title" style="text-align:center">Studio&nbsp;Policies</h2>
+
+    <div class="policy-wrap">
+      <!-- Attendance -->
+      <section class="policy-card">
+        <h3>Attendance&nbsp;&amp;&nbsp;Make-Up&nbsp;Lessons</h3>
+        <p>
+          Please provide 24&nbsp;hours’ notice for cancellations to qualify for a make-up lesson.
+          No-shows are forfeited.
+        </p>
+      </section>
+
+      <!-- Payment -->
+      <section class="policy-card">
+        <h3>Payment&nbsp;Schedule</h3>
+        <p>
+          Tuition is due on the first lesson of each month via cash, check, or&nbsp;Zelle.
+        </p>
+      </section>
+
+      <!-- Calendar -->
+      <section class="policy-card">
+        <h3>Studio&nbsp;Calendar</h3>
+        <iframe
+          class="responsive"
+          src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID"
+          title="Studio calendar"
+          loading="lazy"
+        ></iframe>
+      </section>
+
+      <!-- FAQ -->
+      <section class="policy-card">
+        <h3>FAQ</h3>
+        <p>
+          <strong>Q:</strong> Do you teach adults?<br />
+          <strong>A:</strong> Absolutely! Adult beginners are welcome.
+        </p>
+        <p>
+          <strong>Q:</strong> Can I start mid-semester?<br />
+          <strong>A:</strong> Yes, tuition will be prorated.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, { cache: "no-cache" });
+        if (res.ok) document.getElementById(id).innerHTML = await res.text();
+      };
+      await Promise.all([
+        load("header.html", "site-header"),
+        load("footer.html", "site-footer"),
+      ]);
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

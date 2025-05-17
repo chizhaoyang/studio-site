@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>课程鼎艺音乐工作室</title>
+
+  <!-- 主样式 -->
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- 页面局部样式 -->
+  <style>
+    .pricing-table{margin-top:1rem;width:100%;text-align:center;}
+    .pricing-table td,.pricing-table th{padding:1rem;}
+
+    .class-list{display:grid;gap:2rem;margin-top:3rem;}
+    .class-row{
+      display:grid;
+      grid-template-columns:minmax(160px,220px) 1fr;
+      gap:1.25rem;
+      align-items:start;
+      padding-bottom:1.5rem;
+      border-bottom:4px solid var(--clr-secondary);
+    }
+    .class-row:last-child{border-bottom:none;}
+    .class-name{font-weight:600;color:var(--clr-primary);}
+  </style>
+</head>
+
+<body>
+  <!-- 头部占位 -->
+  <header id="site-header"></header>
+
+  <!-- ───────────── 主内容 ───────────── -->
+  <main class="section container">
+    <h2 class="section-title">课程选项与费用</h2>
+
+    <!-- 价格表 -->
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>课程形式</th>
+          <th>课时长度</th>
+          <th>每月学费</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>私人钢琴课（线下）</td>
+          <td>30&nbsp;分钟&nbsp;×&nbsp;4</td>
+          <td>$160</td>
+        </tr>
+        <tr>
+          <td>私人钢琴课（线上）</td>
+          <td>30&nbsp;分钟&nbsp;×&nbsp;4</td>
+          <td>$150</td>
+        </tr>
+        <tr>
+          <td>练习指导课</td>
+          <td>45&nbsp;分钟</td>
+          <td>$35&nbsp;／次</td>
+        </tr>
+        <tr>
+          <td>音乐理论小组课</td>
+          <td>60&nbsp;分钟&nbsp;×&nbsp;4</td>
+          <td>$120</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 课程简介 -->
+    <div class="class-list">
+      <div class="class-row">
+        <div class="class-name">课程&nbsp;1 – 钢琴探索（K-2）</div>
+        <div>
+          趣味小组课程，介绍节奏、音高与键盘位置。学生通过唱歌、律动和游戏学习，
+          非常适合零基础小朋友。
+        </div>
+      </div>
+
+      <div class="class-row">
+        <div class="class-name">课程&nbsp;2 – 理论实验室</div>
+        <div>
+          每周一次的工作坊，专注于视奏、听觉训练与创意作曲。
+          为准备 ABRSM 英皇或美国钢琴协会考级的学生提供理想辅导。
+        </div>
+      </div>
+    </div>
+
+    <!-- 课程特色 -->
+    <h3 style="margin-top:3rem">课程特色</h3>
+    <ul class="bullets">
+      <li>全面理论与视奏</li>
+      <li>听觉训练与即兴</li>
+      <li>ABRSM 英皇及美国钢琴协会考级辅导</li>
+      <li>为 ASD/ADHD 学习者量身定制的适应性教学</li>
+    </ul>
+
+    <a href="contact.html" class="btn" style="margin-top:2rem">咨询排课</a>
+  </main>
+
+  <!-- 底部占位 -->
+  <footer id="site-footer"></footer>
+
+  <!-- 注入公用头部与底部 -->
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, { cache: "no-cache" });
+        if (res.ok) document.getElementById(id).innerHTML = await res.text();
+      };
+      await Promise.all([
+        load("header.html", "site-header"),
+        load("footer.html", "site-footer")
+      ]);
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

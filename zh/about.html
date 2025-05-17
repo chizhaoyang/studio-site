@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于鼎艺音乐工作室</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+  <!-- Header placeholder -->
+  <header id="site-header"></header>
+
+  <!-- ─────────────  Main content  ───────────── -->
+  <main class="section container">
+
+    <!-- About the Studio -->
+    <h2 class="section-title">关于工作室</h2>
+    <p>
+      刘明昊于 2025 年创立了鼎艺音乐工作室，宗旨是
+      打造一个富有耐心、强调韧性且包容多元的音乐学习空间，让所有背景的学生都能体验音乐带来的快乐。
+      无论是备考 ABRSM 英皇考试，还是弹响人生中的第一个音符，每位学生都会遵循一条
+      “稳步成长胜过急速前进” 的个性化学习之路。
+    </p>
+
+    <!-- About the Founder -->
+    <h2 class="section-title" style="margin-top:3rem">关于创始人</h2>
+
+    <div
+      style="
+        display:grid;
+        gap:2rem;
+        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+        align-items:center;
+      "
+    >
+      <!-- Founder photo -->
+      <img
+        src="/images/founder.png"
+        alt="刘明昊在钢琴旁"
+        style="width:50%;border-radius:var(--radius);box-shadow:var(--shadow-md);"
+      />
+
+      <!-- Founder bio -->
+      <article>
+        <h3>刘明昊&nbsp;M.M.</h3>
+        <p>
+          • 伯克利音乐学院音乐硕士<br />
+          • 西弗吉尼亚大学音乐硕士<br />
+          • 四川音乐学院钢琴演奏学士
+        </p>
+        <p>
+          拥有十余年钢琴教学经验，刘老师帮助学生通过 ABRSM
+          英皇考级、AP 音乐理论等专业考试，并致力于培养学生终身享受音乐的能力。
+          他的教学结合耐心与创造力，激发每位学习者的韧性与音乐好奇心。
+        </p>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- Footer placeholder -->
+  <footer id="site-footer"></footer>
+
+  <!-- Inject shared header & footer -->
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, { cache: "no-cache" });
+        if (res.ok) document.getElementById(id).innerHTML = await res.text();
+      };
+      await Promise.all([
+        load("header.html", "site-header"),
+        load("footer.html", "site-footer"),
+      ]);
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

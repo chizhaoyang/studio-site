@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>演出集锦鼎艺音乐工作室</title>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- 页面专属样式 -->
+  <style>
+    .quote-wrap{
+      max-width:900px;
+      margin-inline:auto;
+      display:grid;
+      gap:1.5rem;
+    }
+    .gallery{
+      column-count:3;
+      column-gap:1rem;
+    }
+    .gallery img{
+      width:100%;
+      margin-bottom:1rem;
+      break-inside:avoid;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+    }
+    @media(max-width:900px){.gallery{column-count:2;}}
+    @media(max-width:600px){.gallery{column-count:1;}}
+    .video-card{
+      max-width:900px;
+      margin-inline:auto;
+      margin-top:2rem;
+      background:var(--clr-light);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      overflow:hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="site-header"></header>
+
+  <main class="section container">
+    <h2 class="section-title" style="text-align:center">学生心声与演出</h2>
+
+    <!-- 学生感言 -->
+    <div class="quote-wrap">
+      <article class="quote">“在明浩老师的精准指导下，我以优异成绩通过 ABRSM 5 级！”<br>— Grace Z.</article>
+      <article class="quote">“课程既有趣又富有创意，我特别喜欢视奏竞赛！”<br>— Ryan L.</article>
+      <article class="quote">“适应性策略让我的自闭症孩子在钢琴学习中茁壮成长。”<br>— Evan 的家长</article>
+    </div>
+
+    <!-- 相册 -->
+    <h3 style="margin-top:3rem;text-align:center">音乐会瞬间</h3>
+    <div class="gallery">
+      <img src="/images/recital1.png" alt="学生在舞台上演奏">
+      <img src="/images/recital2.png" alt="二重奏表演">
+      <img src="/images/recital3.png" alt="钢琴合奏">
+    </div>
+
+    <!-- 视频 -->
+    <h3 style="margin-top:3rem;text-align:center">观看与聆听</h3>
+    <div class="video-card">
+      <iframe
+        class="responsive"
+        src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0"
+        title="学生演奏视频"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, { cache: "no-cache" });
+        if (res.ok) document.getElementById(id).innerHTML = await res.text();
+      };
+      await Promise.all([
+        load("header.html", "site-header"),
+        load("footer.html", "site-footer")
+      ]);
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

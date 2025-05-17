@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lessons – Crescendo Journey Music Studio</title>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Page-specific styles -->
+  <style>
+    /* Wider, centered pricing table */
+    .pricing-table{
+      margin-top:1rem;
+      width:100%;
+      text-align:center;
+    }
+    .pricing-table td,
+    .pricing-table th{padding:1rem;}
+
+    /* Two-column class list */
+    .class-list{
+      display:grid;
+      gap:2rem;
+      margin-top:3rem;
+    }
+    .class-row{
+      display:grid;
+      grid-template-columns:minmax(160px,220px) 1fr;
+      gap:1.25rem;
+      align-items:start;
+      padding-bottom:1.5rem;
+      border-bottom:4px solid var(--clr-secondary);  /* fancy divider */
+    }
+    .class-row:last-child{border-bottom:none;}
+    .class-name{
+      font-weight:600;
+      color:var(--clr-primary);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header placeholder -->
+  <header id="site-header"></header>
+
+  <!-- ─────────────  Main content  ───────────── -->
+  <main class="section container">
+    <h2 class="section-title">Lesson&nbsp;Options&nbsp;&amp;&nbsp;Pricing</h2>
+
+    <!-- Pricing table -->
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Format</th>
+          <th>Length</th>
+          <th>Monthly Tuition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Private Piano (in-person)</td>
+          <td>30&nbsp;min&nbsp;×&nbsp;4</td>
+          <td>$160</td>
+        </tr>
+        <tr>
+          <td>Private Piano (online)</td>
+          <td>30&nbsp;min&nbsp;×&nbsp;4</td>
+          <td>$150</td>
+        </tr>
+        <tr>
+          <td>Guided Practice Session</td>
+          <td>45&nbsp;min</td>
+          <td>$35&nbsp;per&nbsp;session</td>
+        </tr>
+        <tr>
+          <td>Small-group Theory</td>
+          <td>60&nbsp;min&nbsp;×&nbsp;4</td>
+          <td>$120</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Class descriptions with divider line -->
+    <div class="class-list">
+      <!-- Class 1 -->
+      <div class="class-row">
+        <div class="class-name">Class 1&nbsp;–&nbsp;Piano Discovery (K-2)</div>
+        <div>
+          A playful small-group introduction to rhythm, pitch, and keyboard
+          geography. Students learn through songs, movement, and off-bench
+          games. Perfect for first-time musicians.
+        </div>
+      </div>
+
+      <!-- Class 2 -->
+      <div class="class-row">
+        <div class="class-name">Class 2&nbsp;–&nbsp;Theory&nbsp;Lab</div>
+        <div>
+          Weekly workshop focused on sight-reading, ear-training, and creative
+          composition. Ideal supplement for students preparing ABRSM or
+          American Guild exams.
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlights list -->
+    <h3 style="margin-top:3rem">Curriculum&nbsp;Highlights</h3>
+    <ul class="bullets">
+      <li>Comprehensive theory &amp; sight-reading</li>
+      <li>Ear-training &amp; improvisation</li>
+      <li>ABRSM &amp; American Guild exam preparation</li>
+      <li>Adaptive methods for learners with ASD/ADHD</li>
+    </ul>
+
+    <a href="contact.html" class="btn" style="margin-top:2rem">Request Schedule</a>
+  </main>
+
+  <!-- Footer placeholder -->
+  <footer id="site-footer"></footer>
+
+  <!-- Inject shared header & footer -->
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, { cache: "no-cache" });
+        if (res.ok)
+          document.getElementById(id).innerHTML = await res.text();
+      };
+      await Promise.all([
+        load("header.html", "site-header"),
+        load("footer.html", "site-footer"),
+      ]);
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>政策鼎艺音乐工作室</title>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- 页面专属样式 -->
+  <style>
+    .policy-wrap{
+      max-width:800px;
+      margin-inline:auto;
+      display:grid;
+      gap:2.5rem;
+    }
+    .policy-card{
+      background:var(--clr-light);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      padding:2rem;
+    }
+    .policy-card iframe{height:450px}
+  </style>
+</head>
+
+<body>
+  <header id="site-header"></header>
+
+  <main class="section container">
+    <h2 class="section-title" style="text-align:center">工作室政策</h2>
+
+    <div class="policy-wrap">
+      <!-- 出勤 -->
+      <section class="policy-card">
+        <h3>出勤与补课</h3>
+        <p>
+          如需取消课程，请至少提前 24&nbsp;小时通知，以便安排补课。
+          无故缺席将视为自动放弃该课时，不予补课。
+        </p>
+      </section>
+
+      <!-- 付款 -->
+      <section class="policy-card">
+        <h3>付款计划</h3>
+        <p>
+          学费需在每月第一节课时支付，可使用现金、支票或&nbsp;Zelle。
+        </p>
+      </section>
+
+      <!-- 日历 -->
+      <section class="policy-card">
+        <h3>工作室日历</h3>
+        <iframe
+          class="responsive"
+          src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID"
+          title="工作室日历"
+          loading="lazy"
+        ></iframe>
+      </section>
+
+      <!-- 常见问题 -->
+      <section class="policy-card">
+        <h3>常见问题</h3>
+        <p>
+          <strong>问：</strong> 您教授成人学生吗？<br />
+          <strong>答：</strong> 当然！成人零基础也欢迎加入。
+        </p>
+        <p>
+          <strong>问：</strong> 我可以在学期中途开始上课吗？<br />
+          <strong>答：</strong> 可以，学费将按剩余课时比例计算。
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script>
+    async function injectIncludes() {
+      const load = async (file, id) => {
+        const res = await fetch(file, { cache: "no-cache" });
+        if (res.ok) document.getElementById(id).innerHTML = await res.text();
+      };
+      await Promise.all([
+        load("header.html", "site-header"),
+        load("footer.html", "site-footer")
+      ]);
+    }
+    injectIncludes();
+  </script>
+</body>
+</html>

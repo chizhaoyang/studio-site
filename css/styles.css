@@ -1,0 +1,128 @@
+/* ============================================
+   Modern Elegant – CSS starter template
+   Author: ChatGPT | May 2025
+   License: MIT
+============================================ */
+
+/* 1. Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Lora:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
+
+/* 2. CSS Custom Properties */
+:root{
+  /* Palette */
+  --clr-primary:#3E54AC;
+  --clr-secondary:#FFB703;
+  --clr-bg:#F9F9FC;
+  --clr-dark:#22223B;
+  --clr-light:#FFFFFF;
+
+  /* Typography */
+  --ff-sans:'Noto Sans SC','Raleway',sans-serif;
+  --ff-serif:'Noto Sans SC','Lora',serif;
+  --fs-base:calc(1rem + .25vw);
+  --radius:1rem;
+  --shadow-sm:0 4px 12px rgba(0,0,0,.06);
+  --shadow-md:0 6px 20px rgba(0,0,0,.1);
+}
+
+/* 3. Reset & Base */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:var(--ff-sans);
+  font-size:var(--fs-base);
+  background:var(--clr-bg);
+  color:var(--clr-dark);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;border-radius:var(--radius);}
+a{text-decoration:none;color:inherit;}
+h1,h2,h3,h4,h5,h6{font-family:var(--ff-serif);font-weight:600;color:var(--clr-primary);}
+section{padding:4rem min(6vw,3rem);}
+.container{max-width:1200px;margin-inline:auto;}
+
+/* 4. Components */
+/* Button */
+.btn{
+  display:inline-block;
+  padding:.75rem 1.75rem;
+  background:var(--clr-primary);
+  color:var(--clr-light);
+  border:none;
+  border-radius:var(--radius);
+  cursor:pointer;
+  font-weight:600;
+  transition:background .3s,transform .2s;
+}
+.btn:hover{background:#2c3e8c;transform:translateY(-2px);}
+.btn--secondary{background:var(--clr-secondary);color:var(--clr-dark);}
+.btn--secondary:hover{background:#e2a403;}
+
+/* Card */
+.card{
+  background:var(--clr-light);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+  transition:box-shadow .3s transform .3s;
+}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);}
+.card__body{padding:1.5rem;}
+
+/* Navbar */
+.navbar{
+  background:var(--clr-light);
+  box-shadow:var(--shadow-sm);
+  position:sticky;
+  top:0;z-index:1000;
+}
+.nav-wrapper{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 2rem;
+  max-width:1200px;
+  margin-inline:auto;
+}
+.nav-logo{font-family:var(--ff-serif);font-size:1.5rem;font-weight:600;color:var(--clr-primary);}
+.nav-links{display:flex;gap:1.25rem;list-style:none;}
+.nav-links a{font-weight:500;opacity:.8;}
+.nav-links a:hover{opacity:1;}
+
+/* Align logo image + title text */
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:.5rem;          /* space between icon and text */
+  font-size:1.25rem;  /* adjust as you like */
+}
+
+/* Size of the PNG */
+.logo-icon{
+  width: 80px;         /* or any size that fits */
+  height:auto;
+  object-fit:contain; /* keeps proportions */
+}
+
+/* Hero */
+.hero{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2rem;align-items:center;
+}
+.hero h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:1rem;}
+.hero p{margin-bottom:2rem;max-width:45ch;}
+.hero-img{box-shadow:var(--shadow-md);}
+
+/* Grid utility */
+.grid-3{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+
+/* Footer */
+footer{
+  background:var(--clr-primary);
+  color:var(--clr-light);
+  text-align:center;
+  padding:2rem 1rem;
+  font-size:.9rem;
+}

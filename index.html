@@ -1,37 +1,46 @@
-<header>
-    <nav>
-      <a href="index.html" class="logo">Crescendo Journey</a>
-      <input type="checkbox" id="nav-toggle">
-      <label for="nav-toggle" class="burger">&#9776;</label>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+  <title>Crescendo Journey Music Studio</title>
+  <link rel='stylesheet' href='/css/styles.css'/>
+</head>
+<body>
   
-      <ul class="menu">
-        <li><a href="about.html">About</a></li>
-        <li><a href="lessons.html">Lessons</a></li>
-        <li><a href="showcase.html">Showcase</a></li>
-        <li><a href="policies.html">Policies</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-<!doctype html><html lang="en"><head>
-    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Crescendo Journey Music Studio | Piano Lessons in Somerville MA</title>
-    <link rel="stylesheet" href="css/style.css">
-  </head><body>
-  
-  <!-- NAV BAR -->
-  <!-- (paste shared <header> here) -->
-  
-  <main>
-    <section style="text-align:center">
-      <img src="img/hero.jpg" alt="Student at piano smiling" style="max-width:100%;border-radius:8px">
-      <h1>Patience · Resiliency · Music for Everyone</h1>
-      <p>Personalized piano & music-theory lessons for K-5 students (and curious adults!)</p>
+  <!-- Hero -->
+  <section class="hero container">
+    <div>
+      <h1>Every note is a step on your journey</h1>
+      <p>Personalized piano & theory instruction for curious minds of all ages.</p>
       <a class="btn" href="contact.html">Book a Trial Lesson</a>
-    </section>
-  </main>
+    </div>
+    <img class="hero-img" src="/images/hero.png" alt="Student at piano">
+  </section>
   
-  <footer>© 2025 Crescendo Journey Music Studio • Somerville, MA</footer>
-  </body></html>
-  
+  <!-- 3-card grid -->
+  <section class="container">
+    <h2 class="section-title">Why choose us?</h2>
+    <div class="grid-3">
+      <article class="card"><div class="card__body"><h3>Adaptive</h3><p>Inclusive methods for ASD/ADHD.</p></div></article>
+      <article class="card"><div class="card__body"><h3>Exam-Ready</h3><p>ABRSM & American Guild prep.</p></div></article>
+      <article class="card"><div class="card__body"><h3>Bilingual</h3><p>English & Mandarin instruction.</p></div></article>
+    </div>
+  </section>
+
+<script>
+    async function injectIncludes() {
+      // Load header
+      const header = await fetch('header.html').then(r => r.text());
+      document.body.insertAdjacentHTML('afterbegin', header);
+    
+      // Load footer
+      const footer = await fetch('footer.html').then(r => r.text());
+      document.body.insertAdjacentHTML('beforeend', footer);
+    }
+    injectIncludes();
+</script>
+</body>
+
+
+</html>
