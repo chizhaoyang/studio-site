@@ -70,39 +70,77 @@ section{padding:4rem min(6vw,3rem);}
 .card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);}
 .card__body{padding:1.5rem;}
 
-/* Navbar */
-.navbar{
-  background:var(--clr-light);
-  box-shadow:var(--shadow-sm);
-  position:sticky;
-  top:0;z-index:1000;
+/* --- Layout shell --- */
+.navbar {
+  background: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 8%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-.nav-wrapper{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:1rem 2rem;
-  max-width:1200px;
-  margin-inline:auto;
-}
-.nav-logo{font-family:var(--ff-serif);font-size:1.5rem;font-weight:600;color:var(--clr-primary);}
-.nav-links{display:flex;gap:1.25rem;list-style:none;}
-.nav-links a{font-weight:500;opacity:.8;}
-.nav-links a:hover{opacity:1;}
-
-/* Align logo image + title text */
-.nav-logo{
-  display:flex;
-  align-items:center;
-  gap:.5rem;          /* space between icon and text */
-  font-size:1.25rem;  /* adjust as you like */
+.nav-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: .5rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Size of the PNG */
-.logo-icon{
-  width: 80px;         /* or any size that fits */
-  height:auto;
-  object-fit:contain; /* keeps proportions */
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  text-decoration: none;
+}
+.logo-icon { height: 42px; width: auto; }
+.brand-text { font-size: 1.15rem; font-weight: 600; color: #222; }
+
+/* Link list */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+}
+.nav-links a { text-decoration: none; color: #222; font-weight: 500; }
+.btn--secondary { padding: .4rem .9rem; border-radius: 4px; background: #316ad3; color: #fff; }
+
+/* Hamburger (hidden on desktop) */
+.hamburger {
+  display: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-direction: column;
+  gap: .25rem;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #222;
+  transition: transform .3s ease;
+}
+
+/* --- Mobile tweaks --- */
+@media (max-width: 768px) {
+  .brand-text { font-size: 1rem; }
+
+  /* show burger, hide links */
+  .hamburger { display: flex; }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    flex-direction: column;
+    background: #fff;
+    padding: 1rem;
+    gap: .8rem;
+    display: none;           /* collapse by default */
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+  }
+  .nav-links.open { display: flex; }
 }
 
 /* Hero */
