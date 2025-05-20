@@ -88,13 +88,27 @@ section{padding:4rem min(6vw,3rem);}
 }
 
 /* Logo */
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  text-decoration: none;
+/* Make sure the link itself is a flexbox container */
+.nav-logo{
+  display:flex;
+  align-items:center;   /* vertical centering */
+  gap:.5rem;            /* space between icon and text */
+  line-height:1;        /* prevents extra top/bottom padding on the text */
 }
-.logo-icon { height: 42px; width: auto; }
+
+/* Logo image */
+.logo-icon{
+  height:36px;          /* pick a size that matches your nav bar */
+  width:auto;
+  display:block;        /* removes inline-image descender space */
+  object-fit:contain;
+}
+
+/* Optional: small tweak if the text still looks low/high */
+.nav-logo span{
+  display:inline-block;
+  transform:translateY(0px);   /* adjust ±1–2 px until it feels perfect */
+}
 .brand-text { font-size: 1.15rem; font-weight: 600; color: #222; }
 
 /* Link list */
@@ -164,3 +178,51 @@ footer{
   padding:2rem 1rem;
   font-size:.9rem;
 }
+
+/* Space out biography paragraphs */
+.profile article p{
+  margin: 0 0 1rem;   /* top | right/left | bottom  (1 rem ≈ 16 px) */
+}
+
+/* optional: avoid extra space after the last paragraph */
+.profile article p:last-child{
+  margin-bottom: 0;
+}
+
+/* STACK cards vertically on every screen */
+.contact-wrap{
+    max-width: 700px;           /* keeps the column comfortably narrow */
+    margin-inline: auto;        /* center the stack */
+    display: grid;
+    gap: 2.5rem;                /* space between cards */
+    grid-template-columns: 1fr; /* ← force a single column */
+}
+.contact-card{
+    background:var(--clr-light);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);
+    padding:2rem;
+    display:grid;
+    gap:1rem;
+}
+.contact-card iframe{height:350px;width:100%}
+
+/* Form grid spacing */
+.contact-form{display:grid;gap:1rem}
+
+/* “Stay Connected” list */
+.contact-list{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+.contact-list li{
+display:flex;align-items:center;gap:.6rem;
+line-height:1.4;
+}
+.contact-list i{min-width:1.2rem;text-align:center}
+
+/* Brand colours */
+.icon-email      { color:#D44638; }  /* Gmail red */
+.icon-phone      { color:#0096FF; }  /* calm blue */
+.icon-wechat     { color:#07C160; }  /* WeChat green */
+.icon-xhs        { color:#FF2442; }  /* Xiaohongshu red */
+.icon-instagram  { color:#E1306C; }  /* IG rose */
+.icon-youtube    { color:#FF0000; }  /* YouTube red */
+

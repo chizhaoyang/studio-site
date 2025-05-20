@@ -4,82 +4,151 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About – Crescendo Journey Music Studio</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/images/logo.png" />
+
+  <!-- Main site styles -->
   <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Page-specific tweaks (add these rules to styles.css if you prefer) -->
+  <style>
+    /* ── COL / GRID PROFILE BLOCK ───────────────────────────── */
+    .profile {
+      display: grid;
+      grid-template-columns: 1fr 3fr;   /* img | text */
+      gap: 2rem;
+      align-items: start;
+    }
+    .profile img {
+      width: 100%;
+      max-width: 260px;                 /* keeps portraits reasonable */
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+    }
+    /* Stack columns on narrow screens */
+    @media (max-width: 640px) {
+      .profile { grid-template-columns: 1fr; }
+      .profile img { margin: 0 auto; }  /* center image when stacked */
+    }
+
+    /* Section spacing helpers */
+    .section-title    { margin-top: 4rem; }
+    .subsection-title { margin-bottom: .5rem; font-size: 1.2rem; }
+  </style>
 </head>
 
 <body>
-  <!-- Header placeholder -->
+  <!-- Header placeholder (loaded by JS) -->
   <header id="site-header"></header>
 
   <!-- ─────────────  Main content  ───────────── -->
   <main class="section container">
 
     <!-- About the Studio -->
-    <h2 class="section-title">About&nbsp;the&nbsp;Studio</h2>
-    <p>
-      Crescendo Journey Music Studio was founded by <em>Minghao&nbsp;Liu</em> in&nbsp;2025 with a
-      single goal: to create a patient, resilient, and inclusive space where students of all
-      backgrounds can discover the joy of music. Whether preparing for ABRSM exams or learning
-      their very first notes, every student follows a personalized journey that values steady
-      growth over speed.
-    </p>
+    <section id="about-studio">
+      <h2 class="section-title">About&nbsp;the&nbsp;Studio</h2>
+      <p>
+        <strong>Crescendo Journey Music Studio</strong> was founded by
+        Minghao Liu in 2025 with a single mission: to provide a
+        patient, resilient, and inclusive space where students of all
+        backgrounds can explore the joy of music. From first notes to
+        ABRSM exam preparation, every learner follows a personalized path
+        that values steady growth over speed.
+      </p>
+    </section>
 
     <!-- About the Founder -->
-    <h2 class="section-title" style="margin-top:3rem">About&nbsp;the&nbsp;Founder</h2>
+    <section id="about-founder">
+      <h2 class="section-title">About&nbsp;the&nbsp;Founder</h2>
 
-    <div
-      style="
-        display:grid;
-        gap:2rem;
-        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-        align-items:center;
-      "
-    >
-      <!-- Founder photo -->
-      <img
-        src="/images/founder.png"
-        alt="Minghao Liu at the piano"
-        style="width:50%;border-radius:var(--radius);box-shadow:var(--shadow-md);"
-      />
+      <div class="profile">
+        <img
+          src="/images/founder.png"
+          alt="Minghao Liu at the piano"
+        />
 
-      <!-- Founder bio -->
-      <article>
-        <h3>Minghao&nbsp;Liu, M.M.</h3>
-        <p>
-          • Master of Music, Berklee College of Music<br />
-          • Master of Music, West Virginia University<br />
-          • Bachelor of Piano Performance, Sichuan Conservatory
-        </p>
-        <p>
-          With more than ten years of piano-teaching experience, Minghao prepares students
-          for ABRSM examinations, AP Music Theory, and a lifetime of joyful playing. His
-          teaching blends patience with creativity, fostering resilience and musical
-          curiosity in every learner.
-        </p>
-      </article>
-    </div>
+        <article>
+          <h3 class="subsection-title">Minghao&nbsp;Liu,&nbsp;M.M.Ed</h3>
+          <p>
+            Minghao Liu is a Boston-based pianist and music educator whose
+            artistry blends classical rigor, jazz creativity, and an
+            unwavering commitment to inclusive learning. She holds a
+            Master of Music in Music Education (Autism Concentration)
+            from Berklee College of Music, a Master of Music in Jazz
+            Pedagogy from West Virginia University, and a Bachelor of
+            Music in Piano Performance from the Sichuan Conservatory of
+            Music, graduating with highest honors.
+          </p>
+
+          <p>
+            For more than a decade, Minghao has guided learners—from
+            beginners to advanced—toward ABRSM and Guild exam success,
+            college auditions, and inspiring studio recitals. Her
+            bilingual (English | Mandarin), tech-infused lessons engage
+            neurotypical and neurodivergent students alike.
+          </p>
+          
+          <p>
+            An active performer, she presents solo jazz recitals, appears
+            with university ensembles, and curates annual student
+            concerts. Her teaching excellence has earned MMTA Judged
+            Festival awards and national scholarships.
+          </p>
+          
+          <p>
+            At Crescendo Journey Music Studio, Minghao cultivates
+            patience, resilience, and a “music for everyone” mindset—so
+            each lesson becomes a confident step in every student’s
+            musical journey.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Teachers -->
+    <!-- <section id="teachers">
+      <h2 class="section-title">Teachers</h2>
+
+      <div class="profile">
+        <img
+          src="/images/founder.png"
+          alt="Piano teacher Minghao Liu"
+        />
+
+        <article>
+          <h3 class="subsection-title">Minghao&nbsp;Liu,&nbsp;M.M.Ed</h3>
+          <p>
+            Founder ​&amp; lead instructor. Minghao specializes in adaptive
+            piano pedagogy, music theory, and ear-training for students
+            ages 5 +. Her lessons emphasize patient, incremental progress
+            and holistic musicianship.
+          </p>
+          Add bulleted specialties or schedule info if desired
+        </article>
+      </div>
+
+      ▲ Duplicate the block above for additional faculty members
+    </section> -->
 
   </main>
 
-  <!-- Footer placeholder -->
+  <!-- Footer placeholder (loaded by JS) -->
   <footer id="site-footer"></footer>
 
+  <!-- Load shared header/footer & burger menu logic -->
   <script>
     async function injectIncludes() {
-      // Load header
       const header = await fetch('header.html').then(r => r.text());
       document.body.insertAdjacentHTML('afterbegin', header);
-    
-      // Load footer
+
       const footer = await fetch('footer.html').then(r => r.text());
       document.body.insertAdjacentHTML('beforeend', footer);
 
       const burger = document.querySelector('.hamburger');
-      const nav = document.getElementById('navLinks');
-
-      burger.addEventListener('click', () => nav.classList.toggle('open'));
+      const nav    = document.getElementById('navLinks');
+      burger?.addEventListener('click', () => nav.classList.toggle('open'));
     }
     injectIncludes();
-</script>
+  </script>
 </body>
 </html>
