@@ -5,108 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact – Crescendo Journey Music Studio</title>
 
-  <!-- Site-wide styles -->
+  <!-- Site-wide stylesheet -->
   <link rel="stylesheet" href="/css/styles.css" />
 
-  <!-- Load All (solid/regular/brands) icons v6.x – free version -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Iconify runtime (works with <span class="iconify">) -->
+  <!-- Font Awesome & Iconify -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
-
-  <!-- Page-specific tweaks -->
+  <!-- Page-specific styles -->
   <style>
+    /* Stack each section vertically */
+    .contact-wrap{display:block;margin-top:2rem;margin-bottom:3rem;}
 
+    .contact-card{
+      padding:1.75rem 1.5rem;
+      border:2px solid var(--clr-secondary);
+      border-radius:8px;
+      background:#fff;
+      box-shadow:0 2px 6px rgba(0,0,0,.05);
+      margin-bottom:2rem; /* space between cards */
+    }
+    .contact-card:last-child{margin-bottom:0;}
+
+    .contact-card h3{margin-bottom:1rem;font-size:1.25rem;color:var(--clr-primary);}  
+
+    /* Form controls */
+    .contact-form input,
+    .contact-form textarea{
+      width:100%;
+      font-family:inherit;
+      font-size:1rem;
+      padding:0.5rem 0.75rem;
+      margin-bottom:0.85rem;
+      border:1px solid #ccc;
+      border-radius:4px;
+    }
+    .contact-form button{
+      padding:0.6rem 1.25rem;
+      background:var(--clr-primary);
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      font-weight:600;
+      cursor:pointer;
+    }
+    .contact-form button:hover{opacity:0.9;}
+
+    /* Responsive map */
+    .contact-card iframe{width:100%;height:240px;border:0;border-radius:4px;}
+    @media(min-width:768px){.contact-card iframe{height:280px;}}
+
+    /* Contact list */
+    .contact-list{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:0.5rem;}
+    .contact-list li{display:flex;align-items:center;flex-wrap:wrap;}
+    .contact-list i, .contact-list .iconify{margin-right:0.4rem;font-size:1.05rem;}
   </style>
 </head>
-
 <body>
   <header id="site-header"></header>
 
   <main class="section container">
-
-    <!-- ── CONTACT FORM ────────────────────────────── -->
     <h2 class="section-title" style="text-align:center">Contact</h2>
 
     <div class="contact-wrap">
 
-      <!-- Contact-card (form) -->
+      <!-- ── Contact Form ─────────────────────── -->
       <section class="contact-card" aria-labelledby="msgUs">
-        <h3 id="msgUs" style="margin:0">Send&nbsp;Us&nbsp;a&nbsp;Message</h3>
-
-        <!-- ✱ Replace the action URL with the Formspree endpoint tied to  crescendojourneymusicstudio@gmail.com  -->
-        <form
-          action="https://formspree.io/f/xyzwvdgb"
-          method="POST"
-          class="contact-form"
-        >
-          <input type="text"  name="name"  placeholder="Your name"       required />
-          <input type="email" name="email" placeholder="Email address"   required />
-          <input type="tel"   name="phone" placeholder="Phone (optional)"/>
+        <h3 id="msgUs">Send&nbsp;Us&nbsp;a&nbsp;Message</h3>
+        <form action="https://formspree.io/f/xyzwvdgb" method="POST" class="contact-form">
+          <input type="text"  name="name"  placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Email address" required />
+          <input type="tel"   name="phone" placeholder="Phone (optional)" />
           <textarea name="message" rows="5" placeholder="Tell us about your goals…"></textarea>
-
-          <!-- Silent honeypot field (spam reducer) -->
-          <input type="text" name="_gotcha" style="display:none">
-
-          <button type="submit" class="btn">Send&nbsp;Message</button>
+          <input type="text" name="_gotcha" style="display:none" aria-hidden="true">
+          <button type="submit">Send&nbsp;Message</button>
         </form>
       </section>
 
-      <!-- ── MAP + DETAILS ─────────────────────────── -->
+      <!-- ── Map & Details ─────────────────────── -->
       <section class="contact-card" aria-labelledby="findUs">
-        <!-- FIND US -->
         <h3 id="findUs">Find&nbsp;Us</h3>
-        <p><strong>Crescendo Journey Music Studio</strong><br>Framingham, MA 01702</p>
+        <p style="margin-top:0"><strong>Crescendo Journey Music Studio</strong><br>Framingham, MA&nbsp;01702</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23597.764502647988!2d-71.446688329145!3d42.27928672602121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3809de2165555%3A0x5c61896f8aeecc65!2sFramingham%2C%20MA!5e0!3m2!1sen!2sus!4v1716187200000!5m2!1sen!2sus" title="Framingham, MA" loading="lazy"></iframe>
 
-        <!-- Google Maps iframe for Framingham, MA -->
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23597.764502647988!2d-71.446688329145!3d42.27928672602121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3809de2165555%3A0x5c61896f8aeecc65!2sFramingham%2C%20MA!5e0!3m2!1sen!2sus!4v1716187200000!5m2!1sen!2sus"
-          title="Framingham, MA"
-          loading="lazy"
-        ></iframe>
-
-        <!-- STAY CONNECTED -->
         <h3 style="margin-top:1rem">Stay&nbsp;Connected</h3>
-
         <ul class="contact-list">
-          <li>
-            <i class="fa-solid fa-envelope icon-email"></i>
-            Email:&nbsp;
-            <a href="mailto:crescendojourneymusicstudio@gmail.com">
-              crescendojourneymusicstudio@gmail.com
-            </a>
-          </li>
-        
-          <li>
-            <i class="fa-solid fa-phone icon-phone"></i>
-            Phone:&nbsp;<a href="tel:+16812850889">(681)&nbsp;285-0889</a>
-          </li>
-        
-          <li>
-            <span class="iconify icon-wechat" data-icon="simple-icons:wechat"></span>
-            WeChat:&nbsp;<span>yourWeChatID</span>
-          </li>
-        
-          <li>
-            <span class="iconify icon-xhs" data-icon="simple-icons:xiaohongshu"></span>
-            Red&nbsp;Note:&nbsp;<span>yourXHS-ID</span>
-          </li>
-        
-          <li>
-            <i class="fa-brands fa-instagram icon-instagram"></i>
-            Instagram:&nbsp;<a href="https://instagram.com/yourstudio" target="_blank" rel="noopener">
-              @yourstudio
-            </a>
-          </li>
-        
-          <li>
-            <i class="fa-brands fa-youtube icon-youtube"></i>
-            YouTube:&nbsp;<a href="https://youtube.com/yourchannel" target="_blank" rel="noopener">
-              /yourchannel
-            </a>
-          </li>
+          <li><i class="fa-solid fa-envelope"></i>Email:&nbsp;<a href="mailto:crescendojourneymusicstudio@gmail.com">crescendojourneymusicstudio@gmail.com</a></li>
+          <li><i class="fa-solid fa-phone"></i>Phone:&nbsp;<a href="tel:+16812850889">(681)&nbsp;285-0889</a></li>
+          <li><span class="iconify" data-icon="simple-icons:wechat"></span>WeChat:&nbsp;<span>yourWeChatID</span></li>
+          <li><span class="iconify" data-icon="simple-icons:xiaohongshu"></span>Red&nbsp;Note:&nbsp;<span>yourXHS-ID</span></li>
+          <li><i class="fa-brands fa-instagram"></i>Instagram:&nbsp;<a href="https://instagram.com/yourstudio" target="_blank" rel="noopener">@yourstudio</a></li>
+          <li><i class="fa-brands fa-youtube"></i>YouTube:&nbsp;<a href="https://youtube.com/yourchannel" target="_blank" rel="noopener">/yourchannel</a></li>
         </ul>
       </section>
     </div>
@@ -114,18 +103,16 @@
 
   <footer id="site-footer"></footer>
 
-  <!-- Load shared header/footer & burger-menu logic -->
+  <!-- Shared header/footer injection -->
   <script>
     async function injectIncludes(){
       const header = await fetch('header.html').then(r=>r.text());
       document.body.insertAdjacentHTML('afterbegin',header);
-
       const footer = await fetch('footer.html').then(r=>r.text());
       document.body.insertAdjacentHTML('beforeend',footer);
-
       const burger=document.querySelector('.hamburger');
-      const nav   =document.getElementById('navLinks');
-      burger?.addEventListener('click',()=>nav.classList.toggle('open'));
+      const nav=document.getElementById('navLinks');
+      if(burger&&nav) burger.addEventListener('click',()=>nav.classList.toggle('open'));
     }
     injectIncludes();
   </script>
