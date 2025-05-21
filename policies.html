@@ -9,38 +9,30 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/images/logo.png" />
   <link rel="stylesheet" href="/css/styles.css" />
 
-  <!-- Page‑specific responsive tweaks -->
+  <!-- Page‑specific styles to mirror contact card layout -->
   <style>
-    /* Add breathing room above header and before footer */
+    /* Breathing room above header & before footer */
     .section.container{padding-block:2.5rem 3.5rem;}
 
-    /* Readable text column */
-    .policy-wrap{
-      max-width:800px;
-      margin-inline:auto;
-      display:grid;
-      gap:2.5rem;
-    }
+    /* Stack each policy card vertically */
+    .policy-wrap{display:block;margin-top:2rem;margin-bottom:3rem;}
 
-    /* Card look for each policy block */
     .policy-card{
-      background:var(--clr-light,#ffffff);
-      border-radius:var(--radius,8px);
-      box-shadow:var(--shadow-sm,0 2px 6px rgba(0,0,0,.08));
-      padding:2rem 1.75rem;
+      padding:1.75rem 1.5rem;
+      border:2px solid var(--clr-secondary);
+      border-radius:8px;
+      background:#fff;
+      box-shadow:0 2px 6px rgba(0,0,0,.05);
+      margin-bottom:2rem; /* space between cards */
     }
+    .policy-card:last-child{margin-bottom:0;}
+
+    .policy-card h3{margin-bottom:1rem;font-size:1.3rem;color:var(--clr-primary);}  
 
     /* Responsive calendar */
-    .policy-card iframe{
-      width:100%;
-      aspect-ratio:16/9;
-      max-height:450px;
-      border:0;
-      border-radius:6px;
-    }
+    .policy-card iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:4px;max-height:450px;}
   </style>
 </head>
-
 <body>
   <header id="site-header"></header>
 
@@ -49,26 +41,26 @@
 
     <div class="policy-wrap">
       <!-- Attendance -->
-      <section class="policy-card">
-        <h3>Attendance&nbsp;&amp;&nbsp;Make‑Up&nbsp;Lessons</h3>
+      <section class="policy-card" aria-labelledby="attendance">
+        <h3 id="attendance">Attendance&nbsp;&amp;&nbsp;Make‑Up&nbsp;Lessons</h3>
         <p>Please provide 24&nbsp;hours&rsquo; notice for cancellations to qualify for a make‑up lesson. No‑shows are forfeited.</p>
       </section>
 
       <!-- Payment -->
-      <section class="policy-card">
-        <h3>Payment&nbsp;Schedule</h3>
+      <section class="policy-card" aria-labelledby="payment">
+        <h3 id="payment">Payment&nbsp;Schedule</h3>
         <p>Tuition is due on the first lesson of each month via cash, check, or Zelle.</p>
       </section>
 
       <!-- Calendar -->
-      <section class="policy-card">
-        <h3>Studio&nbsp;Calendar</h3>
+      <section class="policy-card" aria-labelledby="calendar">
+        <h3 id="calendar">Studio&nbsp;Calendar</h3>
         <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID" title="Studio calendar" loading="lazy"></iframe>
       </section>
 
       <!-- FAQ -->
-      <section class="policy-card">
-        <h3>FAQ</h3>
+      <section class="policy-card" aria-labelledby="faq">
+        <h3 id="faq">FAQ</h3>
         <p><strong>Q:</strong> Do you teach adults?<br><strong>A:</strong> Absolutely! Adult beginners are welcome.</p>
         <p><strong>Q:</strong> Can I start mid‑semester?<br><strong>A:</strong> Yes, tuition will be prorated.</p>
       </section>

@@ -7,16 +7,41 @@
 
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   <link rel="icon" type="image/png" sizes="512x512" href="/images/logo.png" />
-
-  <!-- Main stylesheet -->
   <link rel="stylesheet" href="/css/styles.css" />
 
-  <!-- Page‑specific tweak -->
+  <!-- Page‑specific styles to mirror contact card layout -->
   <style>
-    .class-block{margin-bottom:2.75rem;}
-    .class-block h3{margin-bottom:0.75rem;color:var(--clr-primary);font-size:1.35rem;}
-    .bullets{margin-left:1.25rem;}
-    .btn-contact{display:inline-block;margin-top:2.5rem;padding:0.75rem 1.5rem;background:var(--clr-primary);color:#fff;border-radius:6px;text-decoration:none;font-weight:600;}
+    /* Breathing room above header & before footer */
+    .section.container{padding-block:2.5rem 3.5rem;}
+
+    /* Stack each lesson card vertically */
+    .lesson-wrap{display:block;margin-top:2rem;margin-bottom:3rem;}
+
+    .lesson-card{
+      padding:1.75rem 1.5rem;
+      border:2px solid var(--clr-secondary);
+      border-radius:8px;
+      background:#fff;
+      box-shadow:0 2px 6px rgba(0,0,0,.05);
+      margin-bottom:2rem; /* space between cards */
+    }
+    .lesson-card:last-child{margin-bottom:0;}
+
+    .lesson-card h3{margin-bottom:1rem;font-size:1.3rem;color:var(--clr-primary);}  
+
+    .bullets{margin-left:1.25rem;list-style:disc;}
+
+    /* Contact button */
+    .btn-contact{
+      display:inline-block;
+      margin-top:0.5rem;
+      padding:0.75rem 1.5rem;
+      background:var(--clr-primary);
+      color:#fff;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:600;
+    }
     .btn-contact:hover{opacity:0.9;}
   </style>
 </head>
@@ -24,58 +49,61 @@
   <header id="site-header"></header>
 
   <main class="section container">
-    <h2 class="section-title">Class&nbsp;Offerings</h2>
+    <h2 class="section-title" style="text-align:center">Class&nbsp;Offerings</h2>
 
-    <!-- ─────────  Private Piano  ───────── -->
-    <div class="class-block">
-      <h3>Private Piano Class (In‑person &amp; Online)</h3>
-      <ul class="bullets">
-        <li>One-to-one lessons tailored to each student's age and level</li>
-        <li>Lesson lengths: 30, 45, or 60 minutes</li>
-        <li>Focus areas: technique, repertoire, sight‑reading, aural skills, creative expression</li>
-        <li>Contact us for detailed tuition</li>
-      </ul>
+    <div class="lesson-wrap">
+      <!-- Private Piano -->
+      <section class="lesson-card" aria-labelledby="pianoClass">
+        <h3 id="pianoClass">Private Piano Class (In‑person & Online)</h3>
+        <ul class="bullets">
+          <li>One‑to‑one lessons tailored to each student's age and level</li>
+          <li>Lesson lengths: 30, 45, or 60 minutes</li>
+          <li>Focus areas: technique, repertoire, sight‑reading, aural skills, creative expression</li>
+          <li>Please <a href="contact.html">contact us</a> for detailed tuition</li>
+        </ul>
+      </section>
+
+      <!-- AP Theory -->
+      <section class="lesson-card" aria-labelledby="apTheory">
+        <h3 id="apTheory">Music Theory Class – AP® Music Theory</h3>
+        <ul class="bullets">
+          <li>Rigorous preparation for the College Board AP Music Theory exam</li>
+          <li>Covers analytical listening, part‑writing, and harmonic analysis</li>
+          <li>A strong AP score can earn college credit and strengthen applications</li>
+        </ul>
+      </section>
+
+      <!-- ABRSM Theory -->
+      <section class="lesson-card" aria-labelledby="abrsmTheory">
+        <h3 id="abrsmTheory">Music Theory Class – ABRSM</h3>
+        <ul class="bullets">
+          <li>Aligned with ABRSM Grades 1–8 and ARSM diploma syllabus</li>
+          <li>Builds notation, analysis, and composition skills</li>
+          <li>Supports success in both practical and theory ABRSM exams</li>
+        </ul>
+      </section>
+
+      <!-- Summer Course -->
+      <section class="lesson-card" aria-labelledby="summerCourse">
+        <h3 id="summerCourse">2025 Summer Children’s Music Fundamentals Course</h3>
+        <ul class="bullets">
+          <li>Five learning pillars: Listen • Sing • Read • Write • Appreciate</li>
+          <li>Curriculum: pitch & rhythm drills; piano sight‑reading; survey of musical eras & composers; aural training; sight‑singing</li>
+          <li>Goals: boost notation fluency, deepen music understanding, prepare for future ABRSM theory exams</li>
+          <li>Format: small groups by level | 1.5‑hour sessions, three times per week, over three weeks</li>
+          <li>Ideal for budding musicians, students with some experience, and future ABRSM candidates seeking faster, more accurate reading</li>
+          <li>Please <a href="contact.html">contact us</a> for the full schedule & tuition</li>
+        </ul>
+      </section>
     </div>
 
-    <!-- ─────────  AP Theory  ───────── -->
-    <div class="class-block">
-      <h3>Music Theory Class – AP® Music Theory</h3>
-      <ul class="bullets">
-        <li>Rigorous preparation for the College Board AP Music Theory exam</li>
-        <li>Covers analytical listening, part‑writing, and harmonic analysis</li>
-        <li>Strong AP score can earn college credit and strengthen applications</li>
-      </ul>
-    </div>
-
-    <!-- ─────────  ABRSM Theory  ───────── -->
-    <div class="class-block">
-      <h3>Music Theory Class – ABRSM</h3>
-      <ul class="bullets">
-        <li>Aligned with ABRSM Grades 1–8 and ARSM diploma syllabus</li>
-        <li>Builds notation, analysis, and composition skills</li>
-        <li>Supports success in both practical and theory ABRSM exams</li>
-      </ul>
-    </div>
-
-    <!-- ─────────  Summer Course  ───────── -->
-    <div class="class-block">
-      <h3>2025 Summer Children’s Music Fundamentals Course</h3>
-      <ul class="bullets">
-        <li>Five learning pillars: Listen • Sing • Read • Write • Appreciate</li>
-        <li>Curriculum: pitch &amp; rhythm drills; piano sight‑reading; survey of musical eras &amp; composers; aural training; sight‑singing</li>
-        <li>Goals: boost notation fluency, deepen music understanding, prepare for future ABRSM theory exams</li>
-        <li>Format: small groups by level | 1.5‑hour sessions, three times per week, over three weeks</li>
-        <li>Ideal for budding musicians, students with some experience, and future ABRSM candidates seeking faster, more accurate reading</li>
-        <li>Contact us for the full schedule &amp; tuition</li>
-      </ul>
-    </div>
-
-    <!-- Contact button -->
+    <!-- Contact call‑to‑action -->
     <a href="contact.html" class="btn-contact">Contact Us</a>
   </main>
 
   <footer id="site-footer"></footer>
 
+  <!-- Shared header/footer injection -->
   <script>
     async function injectIncludes(){
       const header = await fetch('header.html').then(r=>r.text());
