@@ -3,81 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>关于鼎艺音乐工作室</title>
+  <title>关于 – 鼎艺音乐工作室</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/images/logo.png" />
+
+  <!-- Main site styles -->
   <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Page-specific tweaks (add these rules to styles.css if you prefer) -->
+  <style>
+    /* ── COL / GRID PROFILE BLOCK ───────────────────────────── */
+    .profile {
+      display: grid;
+      grid-template-columns: 1fr 3fr;   /* img | text */
+      gap: 2rem;
+      align-items: start;
+    }
+    .profile img {
+      width: 100%;
+      max-width: 260px;                 /* keeps portraits reasonable */
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+    }
+    /* Stack columns on narrow screens */
+    @media (max-width: 640px) {
+      .profile { grid-template-columns: 1fr; }
+      .profile img { margin: 0 auto; }  /* center image when stacked */
+    }
+
+    /* Section spacing helpers */
+    .section-title    { margin-top: 4rem; }
+    .subsection-title { margin-bottom: .5rem; font-size: 1.2rem; }
+  </style>
 </head>
 
 <body>
-  <!-- Header placeholder -->
+  <!-- Header placeholder (loaded by JS) -->
   <header id="site-header"></header>
 
   <!-- ─────────────  Main content  ───────────── -->
   <main class="section container">
 
     <!-- About the Studio -->
-    <h2 class="section-title">关于工作室</h2>
-    <p>
-      刘明昊于 2025 年创立了鼎艺音乐工作室，宗旨是
-      打造一个富有耐心、强调韧性且包容多元的音乐学习空间，让所有背景的学生都能体验音乐带来的快乐。
-      无论是备考 ABRSM 英皇考试，还是弹响人生中的第一个音符，每位学生都会遵循一条
-      “稳步成长胜过急速前进” 的个性化学习之路。
-    </p>
+    <section id="about-studio">
+      <h2 class="section-title">关于工作室</h2>
+      <p>
+        <strong>鼎艺音乐工作室</strong>由刘明昊于 2025 年创立，致力于为所有背景的学习者提供一个耐心、韧性与包容并重的音乐空间。无论是初识音符还是备考 ABRSM，每位学生都将沿着注重稳步成长的个性化道路前行。
+      </p>
+    </section>
 
     <!-- About the Founder -->
-    <h2 class="section-title" style="margin-top:3rem">关于创始人</h2>
+    <section id="about-founder">
+      <h2 class="section-title">关于创始人</h2>
 
-    <div
-      style="
-        display:grid;
-        gap:2rem;
-        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-        align-items:center;
-      "
-    >
-      <!-- Founder photo -->
-      <img
-        src="/images/founder.png"
-        alt="刘明昊在钢琴旁"
-        style="width:50%;border-radius:var(--radius);box-shadow:var(--shadow-md);"
-      />
+      <div class="profile">
+        <img
+          src="/images/founder.png"
+          alt="刘明昊坐在钢琴前"
+        />
 
-      <!-- Founder bio -->
-      <article>
-        <h3>刘明昊&nbsp;M.M.</h3>
-        <p>
-          • 伯克利音乐学院音乐硕士<br />
-          • 西弗吉尼亚大学音乐硕士<br />
-          • 四川音乐学院钢琴演奏学士
-        </p>
-        <p>
-          拥有十余年钢琴教学经验，刘老师帮助学生通过 ABRSM
-          英皇考级、AP 音乐理论等专业考试，并致力于培养学生终身享受音乐的能力。
-          他的教学结合耐心与创造力，激发每位学习者的韧性与音乐好奇心。
-        </p>
-      </article>
-    </div>
+        <article>
+          <h3 class="subsection-title">刘明昊&nbsp;M.M.Ed</h3>
+          <p>
+            刘明昊是一位居住在波士顿的钢琴家与音乐教育者，结合古典严谨、爵士创意与包容性学习理念。她拥有伯克利音乐学院音乐教育硕士（自闭症方向）、西弗吉尼亚大学爵士教育硕士及四川音乐学院钢琴表演学士，并以最高荣誉毕业。
+          </p>
+
+          <p>
+            十余年来，她带领从初学到高级的学生取得 ABRSM 与 Guild 优异成绩，顺利完成大学面试，并在工作室音乐会上大放异彩。她的双语（英语 | 普通话）科技融合课程，让神经典型与神经多样性学生同样受益。
+          </p>
+          
+          <p>
+            作为活跃的演奏者，她举办个人爵士独奏音乐会、与高校乐团合作，并策划年度学生音乐会。其教学成就获得 MMTA 评审节大奖及国家奖学金肯定。
+          </p>
+          
+          <p>
+            在鼎艺音乐工作室，刘明昊坚持耐心、韧性与“音乐为每个人”的理念——让每一堂课都成为学生音乐旅程中的自信一步。
+          </p>
+        </article>
+      </div>
+    </section>
 
   </main>
 
-  <!-- Footer placeholder -->
+  <!-- Footer placeholder (loaded by JS) -->
   <footer id="site-footer"></footer>
 
+  <!-- Load shared header/footer & burger menu logic -->
   <script>
     async function injectIncludes() {
-      // Load header
       const header = await fetch('header.html').then(r => r.text());
       document.body.insertAdjacentHTML('afterbegin', header);
-    
-      // Load footer
+
       const footer = await fetch('footer.html').then(r => r.text());
       document.body.insertAdjacentHTML('beforeend', footer);
 
       const burger = document.querySelector('.hamburger');
-      const nav = document.getElementById('navLinks');
-
-      burger.addEventListener('click', () => nav.classList.toggle('open'));
+      const nav    = document.getElementById('navLinks');
+      burger?.addEventListener('click', () => nav.classList.toggle('open'));
     }
     injectIncludes();
-</script>
+  </script>
 </body>
 </html>

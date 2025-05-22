@@ -6,6 +6,7 @@
   <title>Contact – Crescendo Journey Music Studio</title>
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   <link rel="icon" type="image/png" sizes="512x512" href="/images/logo.png" />
+
   <!-- Site-wide stylesheet -->
   <link rel="stylesheet" href="/css/styles.css" />
 
@@ -24,11 +25,10 @@
       border-radius:8px;
       background:#fff;
       box-shadow:0 2px 6px rgba(0,0,0,.05);
-      margin-bottom:2rem; /* space between cards */
+      margin-bottom:2rem;
     }
     .contact-card:last-child{margin-bottom:0;}
-
-    .contact-card h3{margin-bottom:1rem;font-size:1.25rem;color:var(--clr-primary);}  
+    .contact-card h3{margin-bottom:1rem;font-size:1.25rem;color:var(--clr-primary);}
 
     /* Form controls */
     .contact-form input,
@@ -59,7 +59,14 @@
     /* Contact list */
     .contact-list{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:0.5rem;}
     .contact-list li{display:flex;align-items:center;flex-wrap:wrap;}
-    .contact-list i, .contact-list .iconify{margin-right:0.4rem;font-size:1.05rem;}
+    .contact-list i,
+    .contact-list .iconify{margin-right:0.4rem;font-size:1.05rem;}
+
+    /* ── SOCIAL ICON BRAND COLORS ───────────────────────── */
+    .icon-wechat{color:#7bb32e;}       /* WeChat green */
+    .icon-xhs{color:#ea122d;}          /* Xiaohongshu red */
+    .icon-instagram{color:#e4405f;}    /* Instagram pink-red */
+    .icon-youtube{color:#ff0000;}      /* YouTube red */
   </style>
 </head>
 <body>
@@ -93,10 +100,12 @@
         <ul class="contact-list">
           <li><i class="fa-solid fa-envelope"></i>Email:&nbsp;<a href="mailto:crescendojourneymusicstudio@gmail.com">crescendojourneymusicstudio@gmail.com</a></li>
           <li><i class="fa-solid fa-phone"></i>Phone:&nbsp;<a href="tel:+16812850889">(681)&nbsp;285-0889</a></li>
-          <li><span class="iconify" data-icon="simple-icons:wechat"></span>WeChat:&nbsp;<span>yourWeChatID</span></li>
-          <li><span class="iconify" data-icon="simple-icons:xiaohongshu"></span>Red&nbsp;Note:&nbsp;<span>yourXHS-ID</span></li>
-          <li><i class="fa-brands fa-instagram"></i>Instagram:&nbsp;<a href="https://instagram.com/yourstudio" target="_blank" rel="noopener">@yourstudio</a></li>
-          <li><i class="fa-brands fa-youtube"></i>YouTube:&nbsp;<a href="https://youtube.com/yourchannel" target="_blank" rel="noopener">/yourchannel</a></li>
+
+          <!-- COLORED SOCIAL ICONS -->
+          <li><i class="fa-brands fa-weixin icon-wechat"></i>WeChat:&nbsp;<span>yourWeChatID</span></li>
+          <li><span class="iconify icon-xhs" data-icon="simple-icons:xiaohongshu"></span>Red&nbsp;Note:&nbsp;<span>yourXHS-ID</span></li>
+          <li><i class="fa-brands fa-instagram icon-instagram"></i>Instagram:&nbsp;<a href="https://instagram.com/yourstudio" target="_blank" rel="noopener">@yourstudio</a></li>
+          <li><i class="fa-brands fa-youtube icon-youtube"></i>YouTube:&nbsp;<a href="https://youtube.com/yourchannel" target="_blank" rel="noopener">/yourchannel</a></li>
         </ul>
       </section>
     </div>
