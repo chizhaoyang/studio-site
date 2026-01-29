@@ -1,10 +1,9 @@
 (() => {
-  const getBasePath = () => (window.location.pathname.startsWith('/zh/') ? '/zh/' : '/');
-
-  const safeSet = (target, html) => {
-    if (!target) return false;
-    target.innerHTML = html;
-    return true;
+  const closestFromEventTarget = (target, selector) => {
+    // `event.target` can be a Text node in some browsers; normalize to an Element.
+    if (target instanceof Element) return target.closest(selector);
+    if (target && target.parentElement) return target.parentElement.closest(selector);
+    return null;
   };
 
   const wireNav = () => {
@@ -27,7 +26,7 @@
     });
 
     nav.addEventListener('click', (event) => {
-      if (event.target.closest('a')) {
+      if (closestFromEventTarget(event.target, 'a') || closestFromEventTarget(event.target, 'button')) {
         closeMenu();
       }
     });
@@ -43,6 +42,38 @@
     });
   };
 
+  const wireLanguageSwitch = () => {
+    // Delegate so the handler works regardless of when the header is injected/replaced.
+    if (window.__cjLangSwitchWired) return;
+    window.__cjLangSwitchWired = true;
+
+    const getPage = () => {
+      const parts = (window.location.pathname || '/').split('/').filter(Boolean);
+      const last = parts[parts.length - 1] || '';
+      return last.includes('.') ? last : 'index.html';
+    };
+
+    const isCurrentZh = () => (document.documentElement.lang || '').toLowerCase().startsWith('zh');
+
+    document.addEventListener('click', (event) => {
+      const el = closestFromEventTarget(event.target, '.lang-switch');
+      if (!el) return;
+
+      const lang = el.getAttribute('data-lang');
+      const page = getPage();
+      const suffix = `${window.location.search || ''}${window.location.hash || ''}`;
+
+      // Keep URLs relative so it works at domain root and under subdirectories.
+      let target = null;
+      if (lang === 'zh' && !isCurrentZh()) target = `zh/${page}${suffix}`;
+      if (lang === 'en' && isCurrentZh()) target = `../${page}${suffix}`;
+      if (!target) return;
+
+      event.preventDefault();
+      window.location.assign(target);
+    });
+  };
+
   const fetchText = async (url) => {
     const res = await fetch(url, { cache: 'no-cache' });
     if (!res.ok) {
@@ -52,26 +83,29 @@
   };
 
   const injectIncludes = async () => {
-    const base = getBasePath();
     try {
       const [headerHtml, footerHtml] = await Promise.all([
-        fetchText(`${base}header.html`),
-        fetchText(`${base}footer.html`),
+        // Relative URLs ensure this works at domain root and when hosted under a subdirectory.
+        fetchText('header.html'),
+        fetchText('footer.html'),
       ]);
 
       const headerTarget = document.getElementById('site-header');
-      const footerTarget = document.getElementById('site-footer');
-
-      const headerPlaced = safeSet(headerTarget, headerHtml);
-      if (!headerPlaced) {
+      if (headerTarget) {
+        // Replace the placeholder node to avoid nesting <header> inside <header>.
+        headerTarget.outerHTML = headerHtml;
+      } else {
         document.body.insertAdjacentHTML('afterbegin', headerHtml);
       }
 
-      const footerPlaced = safeSet(footerTarget, footerHtml);
-      if (!footerPlaced) {
+      const footerTarget = document.getElementById('site-footer');
+      if (footerTarget) {
+        footerTarget.outerHTML = footerHtml;
+      } else {
         document.body.insertAdjacentHTML('beforeend', footerHtml);
       }
 
+      wireLanguageSwitch();
       wireNav();
     } catch (error) {
       console.warn('Failed to load shared layout includes.', error);
