@@ -50,7 +50,19 @@
     const getPage = () => {
       const parts = (window.location.pathname || '/').split('/').filter(Boolean);
       const last = parts[parts.length - 1] || '';
-      return last.includes('.') ? last : 'index.html';
+
+      // Support both `.../about.html` and "pretty" URLs like `.../about` or `.../about/`.
+      // Cloudflare Pages commonly serves `.../about` for a file `about.html`.
+      const clean = !last.includes('.');
+      if (!last || last === 'zh') return { slug: '', clean: true };
+
+      if (!clean) {
+        // Prefer rewriting only known `.html` URLs to clean slugs.
+        const slug = last.endsWith('.html') ? last.slice(0, -5) : last;
+        return { slug, clean: false };
+      }
+
+      return { slug: last, clean: true };
     };
 
     const isCurrentZh = () => (document.documentElement.lang || '').toLowerCase().startsWith('zh');
@@ -60,13 +72,14 @@
       if (!el) return;
 
       const lang = el.getAttribute('data-lang');
-      const page = getPage();
+      const { slug, clean } = getPage();
       const suffix = `${window.location.search || ''}${window.location.hash || ''}`;
 
       // Keep URLs relative so it works at domain root and under subdirectories.
       let target = null;
-      if (lang === 'zh' && !isCurrentZh()) target = `zh/${page}${suffix}`;
-      if (lang === 'en' && isCurrentZh()) target = `../${page}${suffix}`;
+      const pagePath = slug ? `${slug}${clean ? '' : '.html'}` : '';
+      if (lang === 'zh' && !isCurrentZh()) target = `zh/${pagePath}${suffix}`;
+      if (lang === 'en' && isCurrentZh()) target = `../${pagePath}${suffix}`;
       if (!target) return;
 
       event.preventDefault();
