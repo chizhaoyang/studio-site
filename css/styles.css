@@ -26,6 +26,19 @@
 
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
+
+/* Skip link for accessibility */
+.skip-link{
+  position:absolute;
+  top:-40px;
+  left:0;
+  background:var(--clr-ink);
+  color:#fff;
+  padding:.5rem 1rem;
+  z-index:9999;
+  transition:top .2s ease;
+}
+.skip-link:focus{top:0;}
 body{
   font-family:var(--ff-sans);
   font-size:var(--fs-base);
