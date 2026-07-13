@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>关于 – 鼎艺音乐工作室</title>
   <meta name="description" content="认识鼎艺音乐工作室创始人刘明昊。伯克利音乐学院音乐教育硕士，专注包容性钢琴教学与双语授课。">
+  <!-- NOTE: replace https://www.example.com with the real production domain before deploy -->
+  <link rel="canonical" href="https://www.example.com/zh/about" />
+  <link rel="alternate" hreflang="en" href="https://www.example.com/about" />
+  <link rel="alternate" hreflang="zh-CN" href="https://www.example.com/zh/about" />
+  <link rel="alternate" hreflang="x-default" href="https://www.example.com/about" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="鼎艺音乐工作室" />
+  <meta property="og:title" content="关于 – 鼎艺音乐工作室" />
+  <meta property="og:description" content="认识鼎艺音乐工作室创始人刘明昊。伯克利音乐学院音乐教育硕士，专注包容性钢琴教学与双语授课。">
+  <meta property="og:url" content="https://www.example.com/zh/about" />
+  <meta property="og:image" content="https://www.example.com/images/founder.jpg" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="关于 – 鼎艺音乐工作室" />
+  <meta name="twitter:description" content="认识鼎艺音乐工作室创始人刘明昊。">
+  <meta name="twitter:image" content="https://www.example.com/images/founder.jpg" />
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   <link rel="icon" type="image/png" sizes="512x512" href="/images/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@300;400;500;600&family=Noto+Sans+SC:wght@400;600&display=swap">
 
   <!-- Main site styles -->
   <link rel="stylesheet" href="/css/styles.css" />
@@ -22,7 +42,7 @@
 
     <!-- About the Studio -->
     <section id="about-studio" class="content-block">
-      <h2 class="section-title">关于工作室</h2>
+      <h1 class="section-title">关于工作室</h1>
       <p>
         <strong>鼎艺音乐工作室</strong>由刘明昊于 2025 年创立，致力于为所有背景的学习者提供一个耐心、韧性与包容并重的音乐空间。无论是初识音符还是备考 ABRSM，每位学生都将沿着注重稳步成长的个性化道路前行。
       </p>
@@ -34,8 +54,11 @@
 
       <div class="profile">
         <img
-          src="/images/founder.png"
+          src="/images/founder.jpg"
           alt="刘明昊"
+          width="700"
+          height="1050"
+          loading="lazy"
         />
 
         <article>

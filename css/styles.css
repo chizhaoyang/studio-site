@@ -2,15 +2,13 @@
    Crescendo Journey Music Studio – 2026 refresh
 ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@300;400;500;600&family=Noto+Sans+SC:wght@400;600&display=swap');
-
 :root{
   /* Palette tuned to the warm tones of the current hero image. */
   --clr-ink:#201010;
   --clr-ink-soft:#4a2a20;
   --clr-accent:#d8a36a;
   --clr-accent-strong:#8a4b22;
-  --clr-teal:#7a4a2b; /* legacy name; used as a secondary accent */
+  --clr-secondary:#7a4a2b;
   --clr-bg:#fbf2e7;
   --clr-panel:#fffaf2;
   --clr-border:rgba(32,16,16,.12);
@@ -39,6 +37,18 @@ html{scroll-behavior:smooth;}
   transition:top .2s ease;
 }
 .skip-link:focus{top:0;}
+
+.btn:focus-visible,
+.nav-links a:focus-visible,
+.nav-links button:focus-visible,
+.hamburger:focus-visible,
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible,
+.contact-form button:focus-visible{
+  outline:2px solid var(--clr-accent-strong);
+  outline-offset:2px;
+}
+
 body{
   font-family:var(--ff-sans);
   font-size:var(--fs-base);
@@ -67,7 +77,7 @@ main.section{padding-block:3.5rem 4.5rem;}
   font-size:.85rem;
   text-transform:uppercase;
   letter-spacing:.22em;
-  color:var(--clr-teal);
+  color:var(--clr-secondary);
   font-weight:600;
   margin-bottom:.75rem;
 }
@@ -99,7 +109,7 @@ main.section{padding-block:3.5rem 4.5rem;}
 }
 .btn:hover{transform:translateY(-2px);box-shadow:0 16px 30px rgba(138,75,34,.26);}
 .btn--secondary{
-  background:var(--clr-teal);
+  background:var(--clr-secondary);
   color:#f7f4ef;
   box-shadow:0 12px 24px rgba(122,74,43,.20);
 }
@@ -213,7 +223,7 @@ main.section{padding-block:3.5rem 4.5rem;}
   align-items:start;
 }
 .content-block + .content-block{margin-top:3rem;}
-.profile img{max-width:260px;box-shadow:var(--shadow-sm);}
+.profile img{max-width:260px;height:auto;box-shadow:var(--shadow-sm);}
 .subsection-title{margin-bottom:.6rem;font-size:1.2rem;}
 .profile article p{margin:0 0 1rem;}
 .profile article p:last-child{margin-bottom:0;}
@@ -239,10 +249,10 @@ main.section{padding-block:3.5rem 4.5rem;}
   box-shadow:var(--shadow-sm);
 }
 
-.contact-card h3,
-.lesson-card h3,
-.policy-card h3,
-.showcase-card h3{
+.contact-card h2,
+.lesson-card h2,
+.policy-card h2,
+.showcase-card h2{
   margin-bottom:1rem;
   font-size:1.3rem;
   color:var(--clr-ink);
@@ -291,7 +301,7 @@ main.section{padding-block:3.5rem 4.5rem;}
 .quote{font-style:italic;line-height:1.6;color:var(--clr-ink-soft);}
 
 .gallery{column-count:3;column-gap:1rem;}
-.gallery img{width:100%;margin-bottom:1rem;break-inside:avoid;box-shadow:var(--shadow-sm);}
+.gallery img{width:100%;height:auto;margin-bottom:1rem;break-inside:avoid;box-shadow:var(--shadow-sm);}
 
 .video-wrapper{position:relative;padding-top:56.25%;}
 .video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:var(--radius-sm);}
@@ -334,3 +344,22 @@ footer{
   *{scroll-behavior:auto;}
   .btn,.card{transition:none;}
 }
+
+.visually-hidden{
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  white-space:nowrap;
+}
+
+.error-page{text-align:center;padding-block:6rem;}
+.error-code{
+  font-family:var(--ff-serif);
+  font-weight:700;
+  font-size:clamp(4rem,10vw,8rem);
+  color:var(--clr-accent);
+  margin-bottom:1rem;
+}
+.error-message{color:var(--clr-ink-soft);margin-bottom:2rem;}
