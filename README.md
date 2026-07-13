@@ -28,7 +28,3 @@ Then open **http://localhost:8000/** in a browser.
 - Tab through a page with the keyboard from the very top — the first stop should be the "Skip to main content" link.
 - Visit a nonexistent path (e.g. `/does-not-exist`) — note that Python's simple server doesn't emulate custom 404 routing, so this will 404 from the server itself rather than showing `404.html`; that page only renders correctly once deployed to hosting that's configured to serve it on a 404 (e.g. Cloudflare Pages).
 - On the Contact page, avoid clicking final submit unless you intend to actually send a message — the form posts to a live Formspree endpoint, not a mock.
-
-## Before deploying
-
-Several files use `https://www.example.com` as a placeholder domain (canonical links, Open Graph tags, `robots.txt`, `sitemap.xml`) — search for `example.com` and replace it with the real production domain first.
